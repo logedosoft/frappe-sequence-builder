@@ -1,7 +1,25 @@
-.DS_Store
+# Frappe
 *.pyc
-*.egg-info
+__pycache__/
+*.egg-info/
+.venv/
+node_modules/
+dist/
+build/
 *.swp
-tags
-node_modules
-__pycache__
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+
+# Compiled assets
+*/public/dist/
+
+# Database
+*.db
+*.sqlite3
