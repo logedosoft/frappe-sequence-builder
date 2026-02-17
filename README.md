@@ -1,33 +1,44 @@
-### Frappe Sequence Builder
+# Frappe Sequence Builder
 
-Visual workflow automation for Frappe CRM using BPMN and SpiffWorkflow
+**Visual BPMN workflow automation for Frappe powered by SpiffWorkflow**
 
-### Installation
+Build CRM sequences, approval workflows, and multi-step automations natively in Frappe. No external tools required.
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+![Status](https://img.shields.io/badge/status-alpha-orange)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Frappe](https://img.shields.io/badge/frappe-v15%2B-green)
+
+---
+
+## What It Does
+
+Create visual workflows:
+- **Lead Created** → Wait 2 days → Send Email → Create Task
+- **Document Submitted** → Notify Manager → Wait for Approval
+- **Deal Won** → Send Welcome Email → Schedule Follow-up
+
+All workflow state stored in Frappe DocTypes. Zero external dependencies.
+
+## Architecture
+Visual Builder (BPMN) → SpiffWorkflow Engine → Frappe Storage
+
+**Components:**
+- **SpiffWorkflow** - Python BPMN 2.0 execution engine
+- **bpmn-js-spiffworkflow** - Visual workflow builder
+- **Frappe DocTypes** - Workflow state persistence
+
+## Installation
 
 ```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app frappe_sequence_builder
+bench get-app https://github.com/YOUR_USERNAME/frappe-sequence-builder
+bench --site your-site.local install-app sequence_builder
+bench --site your-site.local migrate
 ```
 
-### Contributing
+## License
+MIT License
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
-
-```bash
-cd apps/frappe_sequence_builder
-pre-commit install
-```
-
-Pre-commit is configured to use the following tools for checking and formatting your code:
-
-- ruff
-- eslint
-- prettier
-- pyupgrade
-
-### License
-
-mit
+## Credits
+SpiffWorkflow - BPMN execution engine
+bpmn-js-spiffworkflow - Visual modeler
+Frappe Framework
