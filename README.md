@@ -20,30 +20,7 @@ Create visual workflows:
 All workflow state stored in Frappe DocTypes. Zero external dependencies.
 
 ## Architecture
-
-┌─────────────────────────────────────────────────────┐
-│ Frappe CRM │
-│ ┌──────────────┐ ┌──────────────┐ │
-│ │ Visual BPMN │───→│ CRM Sequence │ │
-│ │ Builder │ │ (DocType) │ │
-│ └──────────────┘ └──────┬───────┘ │
-│ │ │
-│ ↓ │
-│ ┌────────────────┐ │
-│ │ SpiffWorkflow │ │
-│ │ Engine │ │
-│ └────────┬───────┘ │
-│ │ │
-│ ↓ │
-│ ┌──────────────────────────────────────┐ │
-│ │ CRM Sequence Instance │ │
-│ │ (Per-Lead Workflow State) │ │
-│ │ - Current Step │ │
-│ │ - Execution Logs │ │
-│ │ - Next Action Date │ │
-│ └──────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────┘
-
+Visual Builder (BPMN) → SpiffWorkflow Engine → Frappe Storage
 
 **Components:**
 - **SpiffWorkflow** - Python BPMN 2.0 execution engine
@@ -55,4 +32,12 @@ All workflow state stored in Frappe DocTypes. Zero external dependencies.
 ```bash
 bench get-app https://github.com/YOUR_USERNAME/frappe-sequence-builder
 bench --site your-site.local install-app sequence_builder
-bench --site your-site.local migrate
+bench --site your-site.local migrate```
+
+## License
+MIT License
+
+## Credits
+SpiffWorkflow - BPMN execution engine
+bpmn-js-spiffworkflow - Visual modeler
+Frappe Framework
