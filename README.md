@@ -32,7 +32,8 @@ Visual Builder (BPMN) → SpiffWorkflow Engine → Frappe Storage
 ```bash
 bench get-app https://github.com/YOUR_USERNAME/frappe-sequence-builder
 bench --site your-site.local install-app sequence_builder
-bench --site your-site.local migrate```
+bench --site your-site.local migrate
+```
 
 ## License
 MIT License
